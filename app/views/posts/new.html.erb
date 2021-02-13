@@ -1,0 +1,26 @@
+<h1 class="text-center my-5">Añade un nuevo Post</h1>
+
+<div class="jumbotron text-center">
+<p><%= notice %></p>
+       <%= form_with(model: @post, id:"create_posts", local: true) do |f|%>
+              
+              <div class="my-3">
+                     <%= f.label "Titulo" %><br>
+                     <%= f.text_field :title %>
+              </div>
+
+              <div class="my-3">
+                     <%= f.label "Contenido" %><br>
+                     <%= f.text_field :content %>
+              </div>
+
+              <div class="my-3">
+                     <%= f.label "URL de la imagen" %><br>
+                     <%= f.text_field :image_url %>
+              </div>
+
+              <div class="my-3">
+                     <%= f.submit "Enviar" %>
+              </div>
+       <%end%>
+</div>

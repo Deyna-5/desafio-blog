@@ -1,0 +1,22 @@
+<h1 class="text-center my-5">Todos los posts</h1>
+<p><%= notice %></p>
+<table class="table text-center">
+       <thead class="thead-dark">
+              <tr>
+                     <th scope="col">Titulo</th>
+                     <th scope="col">Contenido</th>
+                     <th scope="col">Imagen url</th>
+                     <th scope="col">Creado en la fecha:</th>
+              </tr>
+       </thead>
+       <tbody>
+       <% @posts.each do |post| %>
+              <tr>
+                     <th> <%= post.title %> </th>
+                     <th> <%= post.content %> </th>
+                     <th> <%= post.image_url %> </th>
+                     <th> <%= post.created_at %> </th>
+              </tr>
+       <%end%>
+       </tbody>
+</table>
