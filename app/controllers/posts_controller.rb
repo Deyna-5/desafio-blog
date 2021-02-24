@@ -10,16 +10,15 @@ class PostsController < ApplicationController
        end    
 
        def create
-              censored_word = ["spoiler"]
-              @post = Post.new(post_params)
               
-              if (@post.content.split).any? == censored_word.any?
-                     redirect_to posts_dashboard_path, notice: "No puedes utilizar la palabra spoiler"
-              elsif @post.save
+              @post = Post.new(post_params)
+
+              if @post.save
                      redirect_to root_path, notice: "El post fue ingresado con éxito"
               else
                      redirect_to posts_dashboard_path, notice: "El post no se pudo ingresar, intente nuevamente"
               end
+                     
        end
 
        private
