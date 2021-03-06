@@ -10,15 +10,15 @@ class PostsController < ApplicationController
        end    
 
        def create
-              
               @post = Post.new(post_params)
-
+              contenido = @post.content
+              contenido.gsub!("spoiler", "  ")
+              @post.content = contenido
               if @post.save
                      redirect_to root_path, notice: "El post fue ingresado con éxito"
               else
                      redirect_to posts_dashboard_path, notice: "El post no se pudo ingresar, intente nuevamente"
-              end
-                     
+              end  
        end
 
        private
